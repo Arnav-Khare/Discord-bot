@@ -5,7 +5,7 @@ const bot = new Discord.Client();
 
 const queue = new Map();
 
-const token = '' //require token for discord 
+const token = sound //require token for discord 
 
 
 bot.on('ready', () => {
