@@ -5,7 +5,7 @@ const bot = new Discord.Client();
 
 const queue = new Map();
 
-const token = 'NzUxMzY3NjA2NDI2MDA5NjEy.X1IDnQ._DTPaphQgLPvspt2gG3Ljtj4Si0' //require token for discord 
+const token = '' //require token for discord 
 
 
 bot.on('ready', () => {
@@ -26,7 +26,7 @@ bot.on('message' ,async (message)=>{
         return;
     }
     let args = message.content.substring(1).split(' ');
-    const serverQueue = queue.get(message.guild.id) //message,guild.id -> Arnav's server id4
+    const serverQueue = queue.get(message.guild.id) //message,guild.id ->  server id4
 
     switch(args[0]){
         case 'p':
