@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
   
-const token = flame;   
+const token = process.env.flame;   
  
 bot.on('ready', () => {
     console.log('This bot is active!');
