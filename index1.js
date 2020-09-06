@@ -1,16 +1,20 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
   
-const token = 'NzIxNDU1NjkyOTA0NTI5OTgw.XuU03Q.Suo1NlVRwYV9kNOxIPzxWO2kDjo';   
+const token = flame;   
  
 bot.on('ready', () => {
     console.log('This bot is active!');
 })
  
-bot.on('message',message=>{
-    if(message.content==='!command')
+bot.on('message',message => {
+    if(message.content === '!command')
     {
-        message.channel.send('Below are the list of following command...type the following commands to see what bot can do!!! Hello\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAao\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tPlanA\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tGalti word in a sentence ')
+        message.channel.send(`Below are the list of following command...type the following commands to see what bot can do!!! 
+        Hello
+        Plan a (@username)
+        Aao`
+)
 
     }
 })
@@ -19,15 +23,16 @@ bot.on('message', message => {
     {
         return 
     }
-    if(message.content === 'Hello')
+  lets args = message.content.split(' ')
+    if(args[0] === 'Hello')
          message.channel.send(`Hello ${message.author}..How are you!!!`)
          
-        if(message.content==='Aao')
+        if(args[0] === 'Aao')
          {
              message.channel.send('Its pubg time baby!!!')
             var arr1  = message.guild.members.cache;  //return the all the members in a guild
             arr1.forEach(e => {
-                if((e.user === message.author)||(e.user.bot === true)||e.user.username==='Amannjalan')
+                if((e.user === message.author)||(e.user.bot === true))
                 {
 
                 }   
@@ -43,10 +48,10 @@ bot.on('message', message => {
              message.channel.send(`Aaare Vo pubg ki Galti hai ${message.author}!!!!`)
          }
  
-    if(message.content==='Plan a')
+    if(args[0] === 'Plan a')
     {
             var arr  = message.guild.members.cache;  //return the all the members in a guild
-            var person=arr.find(e => e.user.username==='deeksha')
+            var person=arr.find(e => e.user.username==='args[1]')
             
             if(!person) return  message.reply("I CANT FIND THE USER ")
             
@@ -55,19 +60,17 @@ bot.on('message', message => {
         
             if(!role) return message.reply("Couldn't find the mute role.")
 
-            let time = 20000;
-
             person.roles.remove(mainrole);
             person.roles.add(role);
             
-            message.channel.send('Fuck Off deeksha!!!!')
+            message.channel.send('${args[1] has been mutted for 10 minutes}')
  
             setTimeout(function(){
                
                 person.roles.add(mainrole)
                 person.roles.remove(role);
-                message.channel.send(`@${person.user.tag} has been unmuted.`)
-            }, time);
+                message.channel.send(`@${args[1]} has been unmuted.`)
+            }, 600);
 
     }
  
