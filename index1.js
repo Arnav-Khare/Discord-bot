@@ -23,7 +23,7 @@ bot.on('message', message => {
     {
         return 
     }
-  lets args = message.content.split(' ')
+  lets arg = message.content.split(' ')
     if(args[0] === 'Hello')
          message.channel.send(`Hello ${message.author}..How are you!!!`)
          
